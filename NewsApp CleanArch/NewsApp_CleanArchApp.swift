@@ -24,9 +24,15 @@ struct NewsApp_CleanArchApp: App {
     }()
 
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        
+        let remoteDataSource = RemoteArticleDataSource()
+        let repo = ArticleRepositoryImpl(remoteDataSource: remoteDataSource)
+        let useCase = GetArticlesUseCaseImpl(repository: repo)
+    
+        let viewModel = ArticleViewModel(getArticlesUseCase: useCase)
+        
+        WindowGroup{
+            ArticleListView(articleVM: viewModel)
         }
-        .modelContainer(sharedModelContainer)
     }
 }
