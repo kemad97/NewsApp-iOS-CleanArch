@@ -8,9 +8,10 @@
 import Foundation
 
 final class ArticleRepositoryImpl : ArticleRepository {
-    private let remoteDataSource : RemoteArticleDataSource
     
-    init(remoteDataSource: RemoteArticleDataSource) {
+    private let remoteDataSource : RemoteArticleDataSourceImpl
+    
+    init(remoteDataSource: RemoteArticleDataSourceImpl) {
         self.remoteDataSource = remoteDataSource
     }
     

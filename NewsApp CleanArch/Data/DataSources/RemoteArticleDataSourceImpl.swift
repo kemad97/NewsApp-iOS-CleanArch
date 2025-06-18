@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class RemoteArticleDataSource{
+final class RemoteArticleDataSourceImpl{
     
     func fetchArticle() async throws->  [Article] {
         
